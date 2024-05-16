@@ -1,10 +1,17 @@
 jobs:
   build:
     docker:
-      - image: golang:1.17
+      - image: golang:1.22
 
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Install Docker
+          command: |
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            sh get-docker.sh
       - run:
           name: Build Go microservice
           command: |
@@ -16,4 +23,3 @@ jobs:
             docker build -t awallenjr83/go-microservice-template .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             docker push awallenjr83/go-microservice-template
-
