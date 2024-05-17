@@ -43,10 +43,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Print KUBECONFIG_DATA
-          command: |
-            echo "$KUBECONFIG_DATA" | base64 --decode"
-      - run:
           name: Debug Directory and Permissions
           command: |
             mkdir -p /root/.kube
