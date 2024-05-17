@@ -6,6 +6,7 @@ executors:
       - image: circleci/golang:1.17
         command: /bin/bash
         user: root
+    working_directory: /root/go/src/github.com/awallenjr83/go-microservice-template
 
 jobs:
   build:
