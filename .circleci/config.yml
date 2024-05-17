@@ -53,6 +53,7 @@ jobs:
             ls -l /root/.kube
             mkdir -p /root/.kube
             echo "$KUBECONFIG_DATA" | base64 --decode > /root/.kube/config
+            cat /root/.kube/config  # Add this line to print the decoded config for verification
       - run:
           name: "Deploy to Kubernetes"
           command: |
