@@ -17,6 +17,6 @@ spec:
       containers:
       - name: go-microservice-template
         image: awallenjr83/go-microservice-template:latest
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
