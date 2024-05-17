@@ -5,8 +5,7 @@ executors:
     docker:
       - image: circleci/golang:1.17
         command: /bin/bash
-        options:
-          user: root
+      user: root
     working_directory: ~/go/src/github.com/awallenjr83/go-microservice-template
 
 jobs:
