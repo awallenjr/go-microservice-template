@@ -12,13 +12,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Debug Permissions
-          command: |
-            ls -l /     # Check permissions in root directory
-            ls -l /projects    # Check permissions in the project directory
-            whoami    # Check the current user running the job
-            id        # Check user and group IDs
-      - run:
           name: Build Go microservice
           command: |
             go build
