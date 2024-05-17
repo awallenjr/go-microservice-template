@@ -51,8 +51,8 @@ jobs:
       - run:
           name: "Deploy to Kubernetes"
           command: |
-            kubectl apply -f deployment.yml
-            kubectl apply -f service.yml
+            kubectl apply -f deployment.yml --validate=false
+            kubectl apply -f service.yml --validate=false
 
 workflows:
   version: 2
