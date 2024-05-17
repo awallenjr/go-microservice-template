@@ -6,7 +6,7 @@ executors:
       - image: circleci/golang:1.17
         command: /bin/bash
         user: root
-    working_directory: ~/project
+    working_directory: ~/go/src/github.com/awallenjr83/go-microservice-template
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
           name: Debug Permissions
           command: |
             ls -l /
-            ls -l ~/project
+            ls -l ~/go/src/github.com/awallenjr83/go-microservice-template
             whoami
             id
       - run:
