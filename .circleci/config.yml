@@ -43,8 +43,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Decode KUBECONFIG_DATA and set up kubeconfig
+          name: Print KUBECONFIG_DATA
           command: |
+            echo "KUBECONFIG_DATA: $KUBECONFIG_DATA"
+      - run:
+          name: Debug Directory and Permissions
+          command: |
+            ls -l /root
+            ls -l /root/.kube
             mkdir -p /root/.kube
             echo "$KUBECONFIG_DATA" | base64 --decode > /root/.kube/config
       - run:
