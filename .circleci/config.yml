@@ -6,7 +6,6 @@ executors:
       - image: circleci/golang:1.17
         command: /bin/bash
         user: root
-    working_directory: ~/project
 
 jobs:
   build:
