@@ -1,25 +1,53 @@
+version: 2.1
+
+executors:
+  docker-executor:
+    docker:
+      - image: circleci/golang:1.22
+    working_directory: ~/go/src/github.com/awallenjr83/go-microservice-template
+
 jobs:
   build:
-    docker:
-      - image: golang:1.22
-
+    executor: docker-executor
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: Install Docker
-          command: |
-            curl -fsSL https://get.docker.com -o get-docker.sh
-            sh get-docker.sh
       - run:
           name: Build Go microservice
           command: |
             go build
             go test ./...
+      - setup_remote_docker
       - run:
           name: Build Docker image
+          command: docker build -t awallenjr83/go-microservice-template .
+      - run:
+          name: Push Docker image
           command: |
-            docker build -t awallenjr83/go-microservice-template .
-            docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push awallenjr83/go-microservice-template
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            docker push awallenjr83/go-microservice-template:latest
+
+  deploy:
+    docker:
+      - image: bitnami/kubectl:latest
+    steps:
+      - checkout
+      - run:
+          name: Decode KUBECONFIG_DATA and set up kubeconfig
+          command: |
+            mkdir -p /root/.kube
+            echo "$KUBECONFIG_DATA" | base64 --decode > /root/.kube/config
+      - run:
+          name: Deploy to Kubernetes
+          command: |
+            kubectl apply -f deployment.yml
+            kubectl apply -f service.yml
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          context: kubernetes
