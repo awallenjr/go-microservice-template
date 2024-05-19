@@ -64,46 +64,31 @@ Click here for the [Online tutorial I found very useful](https://www.cherryserve
 
 ## Common Useful Commands
 
-1. kubectl
-
-**kubectl is the primary command-line tool for interacting with Kubernetes clusters.**
-
-**Viewing Resources:**
+1. kubectl is the primary command-line tool for interacting with Kubernetes clusters.
 
     ```
+    # Viewing:
     kubectl get pods - List all pods in the current namespace.
     kubectl get nodes - List all nodes in the cluster.
     kubectl get deployments - List all deployments.
     kubectl get services - List all services.
-    ```
-
-**Detailed Information:**
-
-    ```
+    
+    # Detailed Information:
     kubectl describe pod <pod_name> - Get detailed information about a specific pod.
     kubectl describe node <node_name> - Get detailed information about a specific node.
-    ```
 
-**Logs:**
-
-    ```
+    # Logs:
     kubectl logs <pod_name> - Retrieve the logs of a specific pod.
     kubectl logs -f <pod_name> - Stream the logs of a specific pod.
-    ```
 
-**Exec into a Pod:**
-
-    ```
+    # Exec into a Pod:
     kubectl exec -it <pod_name> -- /bin/bash - Execute an interactive shell session in a pod.
     ```
 
-2. Monitoring and Metrics
-
-**Kubernetes provides metrics through its Metrics API, and you can use tools to visualize and analyze these metrics.**
-
-**Metrics Server:**
+2. Monitoring and Metrics, Kubernetes provides metrics through its Metrics API, and you can use tools to visualize and analyze these metrics.
 
     ```
+    # Metrics Server:
     kubectl top node - Show metrics for all nodes.
     kubectl top pod - Show metrics for all pods in the current namespace.
     ```
