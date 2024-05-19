@@ -26,7 +26,7 @@ jobs:
     - name: Build and push Docker image
       id: docker_build
       env:
-        IMAGE_NAME: awallenjr83/go-microservice-template:latest
+        IMAGE_NAME: awallenjr83/go-microservice-template
         TAG: latest
       run: |
         docker build -t $IMAGE_NAME:$TAG .
