@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-microservice-template
-  labels:
-    app: go-microservice-template
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: go-microservice-template
@@ -17,6 +15,5 @@ spec:
       containers:
       - name: go-microservice-template
         image: awallenjr83/go-microservice-template:latest
-        imagePullPolicy: Always
         ports:
         - containerPort: 8080
