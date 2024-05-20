@@ -14,13 +14,13 @@ func main() {
 
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello from your Go microservice!",
+			"message": "Hello from the Go microservice!",
 		})
 	})
 
 	m := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
-		HostPolicy: autocert.HostWhitelist("localhost"),
+		HostPolicy: autocert.HostWhitelist("anthony-allen.com"),
 		Cache:      autocert.DirCache("cache/"),
 	}
 
