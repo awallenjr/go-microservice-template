@@ -1,5 +1,5 @@
 # Start from the official Golang base image
-FROM golang:1.16-alpine
+FROM golang:1.22-alpine
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY . .
 RUN go mod download
 
 # Build the Go app
-RUN CGO_ENABLED=0 go build -o go-microservice-template .
+RUN go build -o go-microservice-template .
 
 # This container exposes port 8080 to the outside world
 EXPOSE 8080
