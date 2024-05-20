@@ -17,4 +17,4 @@ RUN go build -o go-microservice-template .
 EXPOSE 8080
 
 # Command to run the executable
-CMD ["./main"]
+CMD ["./go-microservice-template"]
