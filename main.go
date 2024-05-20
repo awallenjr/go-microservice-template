@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -9,10 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/acme/autocert"
 )
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello from your Go microservice!")
-}
 
 func main() {
 	r := gin.Default()
@@ -25,7 +20,7 @@ func main() {
 
 	m := autocert.Manager{
 		Prompt:     autocert.AcceptTOS,
-		HostPolicy: autocert.HostWhitelist("anthony-allen.com"),
+		HostPolicy: autocert.HostWhitelist("localhost"),
 		Cache:      autocert.DirCache("cache/"),
 	}
 
