@@ -16,4 +16,4 @@ spec:
         - name: go-microservice-template
           image: awallenjr83/go-microservice-template:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
