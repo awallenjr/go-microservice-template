@@ -3,9 +3,9 @@ module github.com/awallenjr/go-microservice-template
 go 1.22
 
 require (
-	github.com/gin-gonic/autotls v1.1.0
-	github.com/gin-gonic/gin v1.10.0
-	golang.org/x/crypto v0.23.0
+	github.com/gin-gonic/autotls v1.1.0 // direct
+	github.com/gin-gonic/gin v1.10.0 // direct
+	golang.org/x/crypto v0.23.0 // direct
 )
 
 require (
