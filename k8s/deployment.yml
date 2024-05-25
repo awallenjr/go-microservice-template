@@ -13,7 +13,7 @@ spec:
         app: go-microservice-template
     spec:
       containers:
-        - name: go-microservice-template
-          image: awallenjr83/go-microservice-template:latest
-          ports:
-            - containerPort: 8080
+      - name: go-microservice-template
+        image: awallenjr83/go-microservice-template:latest
+        ports:
+        - containerPort: 8080
