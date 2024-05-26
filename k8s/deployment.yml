@@ -17,4 +17,3 @@ spec:
         image: awallenjr83/go-microservice-template:latest
         ports:
         - containerPort: 8080
-        - containerPort: 8443

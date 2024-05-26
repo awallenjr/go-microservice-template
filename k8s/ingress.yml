@@ -17,8 +17,7 @@ spec:
           service:
             name: go-microservice-template
             port:
-              number: 8080
-
+              number: 80
   tls:
   - hosts:
     - go-service.anthony-allen.com
