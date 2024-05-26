@@ -4,7 +4,7 @@ metadata:
   name: go-microservice-template-ingress
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: cloudflare-cluster-issuer
 spec:
   ingressClassName: nginx
   tls:
