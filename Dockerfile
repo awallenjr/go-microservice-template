@@ -16,8 +16,9 @@ RUN go mod download
 # Build the Go app
 RUN go build -o go-microservice-template .
 
-# This container exposes port 8080 to the outside world
+# This container exposes ports 8080 and 8443 to the outside world
 EXPOSE 8080
+EXPOSE 8443
 
 # Command to run the executable
 CMD ["./go-microservice-template"]

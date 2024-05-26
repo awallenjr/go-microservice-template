@@ -7,10 +7,6 @@ metadata:
     cert-manager.io/cluster-issuer: cloudflare-cluster-issuer
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - go-service.anthony-allen.com
-    secretName: go-microservice-template-tls
   rules:
   - host: go-service.anthony-allen.com
     http:
@@ -21,4 +17,9 @@ spec:
           service:
             name: go-microservice-template
             port:
-              number: 80
+              number: 8080
+
+  tls:
+  - hosts:
+    - go-service.anthony-allen.com
+    secretName: go-microservice-template-tls

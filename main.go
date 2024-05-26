@@ -11,9 +11,20 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", handler)
-	fmt.Println("Starting server on port 8080...")
-	err := http.ListenAndServe(":8080", nil)
+	fmt.Println("Starting server...")
+
+	httpPort := ":8080"
+	httpsPort := ":8443"
+
+	go func() {
+		err := http.ListenAndServe(httpsPort, nil)
+		if err != nil {
+			fmt.Println("ListenAndServe HTTPS:", err)
+		}
+	}()
+
+	err := http.ListenAndServe(httpPort, nil)
 	if err != nil {
-		fmt.Println("ListenAndServe:", err)
+		fmt.Println("ListenAndServe HTTP:", err)
 	}
 }
