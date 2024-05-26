@@ -38,10 +38,6 @@ jobs:
         kubeconfig: ${{ secrets.KUBECONFIG }}
         version: 'v1.18.0'
 
-    - name: Fetch and update Ingress resources
-      run: |
-        kubectl get ingress go-microservice-template-ingress -o yaml > k8s/ingress.yml
-
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f k8s/deployment.yml
